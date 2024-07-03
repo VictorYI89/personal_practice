@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- src경로에 없는 이미지가 없는 경우 alt에 정해놓은 text가 나온다 -->
+    <!-- .은 현재 디랙토리 ..은 상위 디랙토리를 가리킨다 -->
+    <h1>일반 이미지 표기</h1>
+    <img src="../images/강아지.jpeg" alt="대체 text"/>
+    <!-- 위는 상대경로 방법, 절대경로 방법은 -> /HTML_CSS_JavaScript/images/강아지.jpeg -->
+    <br>
+    <!-- 아래는 하이퍼링크(a teg)를 사용하여 그림을 클릭 시 해당 사이트로 이동함 -->
+    <h1>이미지를 누르면 정해진 하이퍼링크 사이트로 이동</h1>
+    <a href="https://www.hani.co.kr/arti/animalpeople/companion_animal/879191.html" target="_blank">
+       <img src="../images/강아지.jpeg" width="200" text="대체 text"/>
+    </a>
+    <br>
+    <!-- 사이트 이미지의 url을 사용하여 그 주소를 이미지의 경로로 넣어줌 -->
+     <h1>이미지의 경로를 url로 입력하여 해당 사이트의 이미지를 사용함</h1>
+    <img src="https://flexible.img.hani.co.kr/flexible/normal/960/960/imgdb/resize/2019/0121/00501111_20190121.JPG" width="300" height="300" alt="강아지" />
+
+</body>
+</html>
