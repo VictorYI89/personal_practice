@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <!-- col은 한개의 열을 그룹화 한다 -->
+        <col style="width:80px;">
+        <!-- colgroup은 지정한 갯수만큼의 열을 그룹화 한다 -->
+        <colgroup span="2" style="width: 150px"></colgroup>
+        <col style="width: 100px">
+        
+        <caption>표 제목</caption>
+        <!-- thead, tbody, tfoot은 표의 맨 위, 중간, 아래에 표시되는 내용을 코드의 순서에 상관없이 표기한다 -->
+        <!-- thead : 맨 윗줄 헤더역활을 한다. -->
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>상품명</th>
+                <th>수량</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+
+        <!-- tfoot : 맨 아랫줄에 표시된다 -->
+        <tfoot>
+            <tr>
+                <th>총금액</th>
+                <!-- colspan은 입력한 수만큼 오른쪽의 열을 병합함 -->
+                <th colspan="3">6,500원</th>
+            </tr>
+        </tfoot>
+
+        <!-- tbody : 표의 가운데 영역에 들어간다 -->
+        <tbody>
+            <tr>
+                <th>1</th>
+                <td>콜라</td>
+                <td>1개</td>
+                <td>1,500원</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>사이다</td>
+                <td>2개</td>
+                <!-- rowspan은 입력한 수만큼 아래의 행을 병합함 -->
+                <td rowspan="2">1,000원</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>탄산수</td>
+                <td>3개</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

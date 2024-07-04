@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <!-- fieldset, legend, label, select, option, optgroup -->
+        <fieldset>
+            <legend>로그인 정보 입력</legend>
+            <p>
+                <label for="userpw">User ID</label>
+                <input type="password" id="userpw">
+            </p>
+            <p>
+                <label for="userid">password</label>
+                <input type="text" id="userpw">
+            </p>
+
+            <select name="city" id="city">
+                <optgroup label="서울시">
+                  <option value="강북구">강북구</option>
+                  <option value="강남구">강남구</option>
+                  <option value="서초구">서초구</option>
+                </optgroup>
+                <optgroup label="경기도 성남시">
+                  <option value="중원구" selected>중원구</option>
+                  <option value="분당구">분당구</option>
+                </optgroup>
+            </select>
+            <br>
+            <br>
+
+            <!-- input button다음으로 생겼으며 버튼을 생성할 때 사용함 -->
+            <button type="submit" disabled>
+                <img src="facebook.png" alt="페이스북 버튼 : ">
+                페이스북에 등록하기
+            </button>
+            <br>
+            <br>
+            <!-- readonly 읽기전용 -->
+            <textarea readonly>기본텍스트가 들어있으며 이것은 읽기전용으로 만들었습니다.</textarea>
+            <br>
+            <br>
+            <!-- maxlength 최대 작성 길이(최소나 다른것들도 있음) -->
+            <textarea maxlength="10">10글자까지</textarea>
+        </fieldset>
+
+        <!-- checked (기본적으로 선택 되어있음) -->
+        <fieldset>
+            <legend>좋아하는 과일</legend>
+            <input type="checkbox" id="banana" name="banana" value="banana">
+            <label for="banana">banana</label><br>
+            <input type="checkbox" id="apple" name="apple" value="apple" checked>
+            <label for="apple">apple</label><br>
+            <input type="checkbox" id="orange" name="orange" value="orange" checked>
+            <label for="orange">orange</label><br>
+          </fieldset>
+    </form>
+</body>
+</html>

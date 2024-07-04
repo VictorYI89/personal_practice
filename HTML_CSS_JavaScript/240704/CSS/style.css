@@ -1,0 +1,10 @@
+/* h2에 폰트의 스타일을 적용함 */
+h2{
+    color: blue;
+    font-size: 30px;
+}
+
+h1{
+    color: blueviolet;
+    font-size: 35;
+}

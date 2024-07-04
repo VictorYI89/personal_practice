@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 모든 스타일을 변경함 */
+        /* *{color: red;}  */
+
+        /* li의 스타일을 변경함 */
+        /* li{color: violet;} */
+
+        /* orange라는 클라스의 스타일을 변경함 */
+        /* .orange{color: orange;} */
+
+        /* orange라는 클라스의 스타일을 변경함 */
+        /* #apple{color: blue;} */
+
+        /* span의 orange라는 클라스의 스타일을 변경함 */
+        /* span.orange{color: yellow;}  */
+
+        /* css 적용 우선순위
+        1. id (#이름 으로 표현함)
+        2. class (.이름 으로 표현함)*/
+
+        /* > 꺽새는 자식 요소를 나타냄 모든 직계자식요소들에게 스타일이 적용됨 */
+        /* ul > .orange {
+            color: red;
+        } */
+
+        /* ul > #apple {
+            color: blue;
+        } */
+
+        /* 바로 붙여서 사용하는건 자손 요소를 나타냄 모든 자손에게 스타일이 적용됨 */
+        /* div p {
+            color: pink;
+        } */
+
+        /* 근처에 바로 인접한 요소의 스타일을 변경함 */
+        /* .orange + li {
+            color: rgb(148, 11, 130);
+        } */
+
+        /* 다음 모든 요소의 스타일을 변경함 */
+        /* .orange ~ li {
+            color: yellow;
+        } */
+
+        /* :hover 가상선택자, 마우스를 올리면 정해진 스타일로 표시됨 */
+        /* a:hover{
+            color: red;
+        }
+        li:hover{
+            color: blueviolet;
+        } */
+
+        /* :active 마우스를 클릭하고 있는 동안 정해진 스타일로 표시됨 */
+        /* a:active{
+            color: aqua;
+        } */
+
+        /* :focus 포커스 상태일 때 정해진 스타일로 표시됨 */
+        /* input:focus{
+            background-color: orange;
+        } */
+
+        /* 선택자의 첫번째 자식요소의 스타일을 변경시킴 */
+        /* .fruit span:first-child{
+            color: red;
+        } */
+        /* div는 해당클라스의 첫번째 요소가 아니기 때문에 적용이 안됨 */
+        /* .fruit div:first-child{
+            color: red;
+        } */
+        /* h3은 해당 클라스의 마지막 요소이기 때문에 적용됨 */
+        /* .fruit h3:last-child{
+            color: aqua;
+        } */
+        /* fruit클라스 중 3번째 자식요소의 스타일을 적용함 */
+        /* .fruit *:nth-child(3){
+            color: cadetblue;
+        } */
+         /* fruit클라스 중 2번째 자식마다 요소의 스타일을 적용함 뒤에 + or - 로 계산하여 넣을 수 있음 */
+         /* .fruit *:nth-child(2n){
+            color: darkgoldenrod;
+        } */
+        /* 선택자 box 요소의 앞뒤에 스타일을 넣을 수 있음 */
+        /* .box::before{
+            content: '앞'; color: aquamarine;
+        }
+        .box::after{
+            content: '뒤'; color: aquamarine;
+        } */
+        /* 속성에 type를 가지고 있는 요소들의 스타일을 변경함 type="text" 와 같이 특정 타입을 지정하여 변경하는것도 가능*/
+        /* [type]{
+            background-color: aquamarine;
+        } */
+        /* 비활성화 된 요소들의 스타일을 변경함 */
+        /* [disabled]{
+            color: red; background-color: aqua;
+        } */
+        /* div에 자손으로 속한 2번째 요소들만 스타일을 변경함 :nth-of-type()의 경우 뒤에서부터의 순번으로 적용됨*/
+        /* div p:nth-of-type(2){
+            color: red;
+        } */
+
+        /* 각 선택자의 우선순위 */ /* 색상은 16진수의 8자리 코드로된 것과 rgb(red,green,blue)으로 사용 가능 */
+        div             {color: #d1180d !important;}                                  /* 0. !important */
+        /* 아래의 <div id="color_yellow" class="color_yellow" style="color: orange;">        1. 인라인 선택자 */
+        #color_yellow   {color: rgb(255, 255, 0);}                                              /* 2. id 선택자 */
+        .color_yellow   {color: green;}                                               /* 3. class 선택자 */
+        div             {color: blue;}                                                /* 4. 태그 선택자 */
+        *               {color: darkblue;}                                            /* 5. 전체 선택자 */
+        body            {color: violet;}                                              /* 6. 상속없음 */
+    </style>
+</head>
+<body>
+    <div id="color_yellow" class="color_yellow" style="color: orange;"> 
+        Hello World!
+    </div>
+    <br><br><br><br>
+    <div>
+        <p>lorem 1</p>
+        <span>span 1</span>
+        <p>lorem 2</p>
+    </div>
+    <div>
+        <p>lorem 3</p>
+        <span>span 2</span>
+        <span>span 3</span>
+        <p>lorem 4</p>
+    </div>
+    <br><br><br><br>
+    <div class="box">Content</div>
+    <div class="fruit">
+        <span>수박</span>
+        <span>딸기</span>
+        <div>오렌지</div>
+        <span>망고</span>
+        <h3>사과</h3>
+    </div>
+    <input type="text" />
+    <input type="text" value="hahah" disabled/>
+    <div>
+        <ul>
+            <p>자손사과</p>
+            <li id="apple">사과</li>
+            <li>딸기</li>
+            <p>자손딸기</p>
+            <li class="orange">오렌지</li>
+            <li>망고</li>
+            <li>수박</li>
+        </ul>
+    </div>
+    <div>당근</div>
+    <p>토마토</p>
+    <span class="orange">오렌지</span>
+    <span>포도</span>
+    <br>
+    <a href="https://www.naver.com">NAVER</a>
+    
+</body>
+</html>
