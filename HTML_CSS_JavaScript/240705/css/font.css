@@ -1,0 +1,35 @@
+.font_family{
+    font-family: BatangChe, "Times New Roman";
+}
+
+.font_size{
+    font-size: 30px;
+}
+
+.font_weight{
+    font-weight: 1000;
+}
+
+.font_style{
+    font-style: italic;
+}
+
+.font_variant{
+    font-variant: small-caps;
+}
+
+.text_align{
+    text-align: center;
+}
+
+.text_decoration{
+    text-decoration: underline;
+}
+
+.letter_spacing{
+    letter-spacing: 30px;;
+}
+
+.line_height{
+    line-height: 1000%;
+}

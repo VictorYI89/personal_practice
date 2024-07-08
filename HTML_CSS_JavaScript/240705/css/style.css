@@ -1,0 +1,187 @@
+.parent{
+    font-size: 30px;
+}
+
+/* 부모(parent)의 크기에 대한 비율크기 */
+.child{
+    font-size: 200%;
+}
+
+/* 부모(child)의 크기에 대한 비율크기 */
+.child_to_child{
+    font-size: 50%;
+}
+
+.parent_em{
+    font-size: 30px;
+}
+
+/* 부모(parent_em)의 크기에 대한 배율크기 */
+.child_em{
+    font-size: 2em;
+}
+
+/* 부모(child_em)의 크기에 대한 배율크기 */
+.child_em_to_child_em{
+    font-size: 0.5em;
+}
+
+/* 기본 폰트 크기 */
+html{
+    font-size: 15px;
+}
+
+/* html의 폰트 크기에 대한 배율크기 */
+.rem{
+    font-size: 3rem;
+}
+
+/* 화면(창-가로)의 크기에 대한 배율 크기 */
+.parent_vw{
+    font-size: 3vw;
+}
+
+/* 화면(창-세로)의 크기에 대한 배율 크기 */
+.parent_vh{
+    font-size: 3vh;
+}
+
+/* 선택된 요소의 외부여백 스타일 */
+.margin_a{
+    margin: 10px 30px 15px 35px;
+    /* margin-top: 10px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+    margin-left: 35px; */
+}
+/* margin이 겹치면(위아래로) 큰값이 적용된다 */
+.margin_b{
+    margin: 30px 30px 15px 35px;
+    /* margin-top: 10px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+    margin-left: 35px; */
+}
+
+/* 요소의 테두리 스타일 */
+.border_a{
+    /* border: 10px dashed blue; */
+    /* border-width: 10; */
+    border-style: dashed;
+    border-color: blue;
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    /* 각각 색상과 스타일도 변경 가능 */
+    border-bottom-color: brown;
+    border-bottom-style: solid;
+    /* 모서리의 둥글기도 조절 가능 */
+    /* border-radius: 10px; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.border_b{
+    width: 300px;
+    height: 100px;
+    background-color: orange;
+    border: 10px solid;
+    border-radius: 30px;
+}
+
+.naverserch{
+    border: 10px solid #2DB400;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+}
+.naver{
+    font-size: 30px;
+    width: 500px;
+    height: 50px;
+    color: white;
+    background-color: #2DB400;
+    border-radius: 5px;
+    text-align: center;
+}
+.cercle{
+    width: 100px;
+    height: 100px;
+    border: 5px solid black;
+    border-radius: 51px;
+}
+.oracle{
+    width: 60px;
+    height: 200px;
+    background-color: orange;
+    border-radius: 75%;
+}
+.triangle{
+    width: 0px;
+    height: 0px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+}
+
+/* border기준 안쪽 여백 */
+.padding_a{
+    border: 1px solid black;
+    /* padding: 10px; */
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+/* 블록의 사이즈크기를 스타일화 함 */
+.box_size{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    border: 10px solid black;
+    padding: 10px;
+    /* 요소의 크기를 중심으로 크기게산 */
+    /* box-sizing: content-box; */
+    /* 요소와 테두리들의 크기를 모두합친 크기계산 */
+    box-sizing: border-box;
+}
+
+.inlineblock{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
+
+.parent_overflow{
+    width: 100px;
+    height: 100px;
+    background-color: royalblue;
+    /* hidden인 경우 부모의 크기에 맞춤 */
+    /* overflow: hidden; */
+    overflow: scroll;
+}
+
+.child_overflow{
+    width: 200px;
+    height: 50px;
+    background-color: orange;
+}
+
+.parent_overflow_b{
+    width: 100px;
+    height: 100px;
+    background-color: royalblue;
+    /* hidden인 경우 부모의 크기에 맞춤 */
+    /* overflow: hidden; */
+    overflow: auto;
+}
+
+.child_overflow_b{
+    width: 200px;
+    height: 50px;
+    background-color: orange;
+}

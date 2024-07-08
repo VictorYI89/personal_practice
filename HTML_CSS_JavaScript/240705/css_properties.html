@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- span은 따로 설정해도 줄 바꿈이 없다 (Display inline) 
+            1. 줄바꿈 없음
+            2. 포함한 컨텐츠 크기만큼 가로, 세로가 자동으로 줄어들음
+            
+         div는 따로 설정하면 줄바꿈이 자동으로 됨(Display block)
+            1. 줄바꿈 있음
+            2. 가로는 부모 요소의 크기만큼 자동으로 늘어나고
+               세로는 부모 요소의 크기만큼 자동으로 줄어들음        -->
+    <span>Hello</span>
+    <span>World</span>
+    <br><br>
+    <div>Hello</div>
+    <div>World</div>
+    <br><br>
+    <div style="width: 300px; height: 50px;">
+        <div>Hello</div>
+        <div>World</div>
+    </div>
+    <br><br>
+    <div class="parent">
+        Hello World(parent)
+        <div class="child">
+            Hello World(child)
+            <div class="child_to_child">
+                Hello World(child_to_child)
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="parent_em">
+        Hello World(parent_em)
+        <div class="child_em">
+            Hello World(child_em)
+            <div class="child_em_to_child_em">
+                Hello World(child_em_to_child_em)
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="rem">
+        Hello World(rem)
+    </div>
+    <br><br>
+    <div class="parent_vw">
+        Hello World(parent_vw)
+    </div>
+    <br><br>
+    <div class="parent_vh">
+        Hello World(parent_vh)
+    </div>
+</body>
+</html>
