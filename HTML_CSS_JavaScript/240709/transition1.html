@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            /* transition: width 1s; */
+            /* transition: width 3s, background-color 1s ease; */
+            /* transition-property: width, background-color; */
+            /* transition-duration: 1s; */
+            /* transition-delay: 0.3s; */
+            transition: 1s 0.5s cubic-bezier(.02,.67,.23,1.22);
+            
+        }
+        div:active{
+            width: 300px;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

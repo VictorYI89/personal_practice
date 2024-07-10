@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            position: relative;
+            background-color: whitesmoke;
+            border: 2px dashed black;
+            padding: 5px;
+            margin: 0 auto;
+        }
+
+        .img{
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+            margin-left: 50px;
+            float: left;
+        
+        }
+
+        .container .menu .item{
+            float: left;
+            margin-right: 20px;
+            margin-top: 15px;
+            border: 2px solid black;
+            padding-right: 5px;
+            padding-left: 5px;
+            /* position: absolute; */
+        }
+
+        /* float을 사용한 뒤에는 속성 초기화를 해주어야 함 */
+        .menu::after{
+            content: "";
+            display: block;
+            clear: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="img" src="../images/강아지.jpeg" alt="아이콘">
+        <div class="menu">
+            <div class="item">Home</div>
+            <div class="item">Issues</div>
+            <div class="item">Pull requests</div>
+            <div class="item">Projects</div>
+            <div class="item">Discussions</div>
+            <div class="item">Codespaces</div>
+        </div>
+    </div>
+</body>
+</html>

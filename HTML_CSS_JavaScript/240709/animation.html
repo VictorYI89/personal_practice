@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes bgchange{
+            0%{background-color: red;}
+            25%{background-color: orange;}
+            50%{background-color: yellow;}
+            75%{background-color: greenyellow;}
+            100%{background-color: green;}
+        }
+
+        .animate {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-duration: 3s;
+            animation-name: bgchange;
+            animation-fill-mode: forwards;
+        }
+
+        .transform{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .transform:hover{
+            /* transform:translate(100px, 200px); 좌표이동 */
+            /* transform: scaleX(2); 가로크기 변환 */
+            /* transform: scaleY(2); 세로크기 변환 */
+            /* transform: scale(2); 부피크기 변환 */
+            /* transform: skew(30deg, 30deg); 축 찌그러뜨리기 */
+            transform: rotate(30deg); /*2차원 회전하기*/
+            transform-origin: top left; /*회전축 지정*/
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="animate"></div>
+    <div class="transform"></div>
+</body>
+</html>

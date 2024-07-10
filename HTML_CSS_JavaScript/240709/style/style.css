@@ -1,0 +1,45 @@
+body, html{
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+.wrapper{
+
+}
+
+header{
+    height: 80px;
+    background-color: royalblue;
+}
+
+section{
+    height: 200px;
+}
+
+section:nth-child(1){
+    background-color: red;
+}
+
+section:nth-child(2){
+    background-color: orange;
+}
+
+section:nth-child(3){
+    background-color: blueviolet;
+}
+footer{
+    height: 80px;
+    background-color: brown;
+}
+
+@media (min-width:700px) { /*PC화면*/
+    header > span:last-child{
+        display: none;
+    }
+}
+@media (max-width:699px) { /*Mobile화면*/
+    header > span:first-child{
+        display: none;
+    }
+}
