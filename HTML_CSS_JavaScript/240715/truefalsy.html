@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {value:1};
+        if(!person){
+            console.log('person이 없습니다.');
+        }else {
+            console.log(person);
+        }
+        
+        function getName(animal){
+            const name = animal && animal.name;
+            return name || '이름이 없는 동물';
+        }
+        const name = getName('dog');
+        console.log(name);
+
+        function getSound(animal){
+            const sounds = {개:'멍멍',고양이:'야옹',참새:'짹짹',비둘기:'구구 구  구'};
+            return sounds[animal] || '...?'
+        }
+        console.log(getSound('개'));
+        console.log(getSound('비둘기'));
+
+        // 함수 객체일 경우
+        function makeSound(animal){
+            const tasks = {
+                개(){
+                    console.log('멍멍');
+                },
+                고양이(){
+                    console.log('야옹');
+                },
+                참새(){
+                    console.log('짹짹');
+                },
+                비둘기(){
+                    console.log('구구 구 구국');
+                }
+            }
+            if(!tasks[animal]){
+                console.log('...?');
+                return;
+            }
+            tasks[animal]();
+        }
+        makeSound('고양이');
+        makeSound('참새');
+    
+
+        
+    </script>
+</body>
+</html>

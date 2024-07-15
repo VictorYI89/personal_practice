@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const date = new Date();
+        const dateFormat = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+        console.log(dateFormat);
+        
+        const date1 = new Date('2022-12-23');
+        const date2 = new Date('2022-12-26');
+        const dateDiff = date2.getTime() - date1.getTime();
+        console.log(dateDiff);
+        const interval = dateDiff / (60*60*1000);
+        console.log(interval);
+
+        function getRandon(max){
+            return Math.floor(Math.random() * max) + 1;
+        }
+        
+        const arr = [];
+        for(let i=0; i<6; i++){
+            const maxRandom = getRandon(100);
+            arr.push(maxRandom);
+        }
+        console.log(arr);
+
+        function Animal(type, name, sound){
+            this.type = type;
+            this.name = name;
+            this.sound = sound;
+        }
+
+        Animal.prototype.say =  function() {
+            console.log(this.sound);
+        }
+
+        // const dog = new Animal('개', '멍멍이', '멍멍');
+        // const cat = new Animal('고양이', '야옹이', '야옹');
+
+        // dog.say();
+        // cat.say();
+
+        function Dog(name, sound){
+            Animal.call(this, '개', name, sound);
+        }
+        Dog.prototype = Animal.prototype;
+
+        const dog = new Dog('멍멍이', '왈왈');
+        dog.say();
+
+        function Cat(name, sound){
+            Animal.call(this, '고양이', name, sound);
+        }
+        Cat.prototype = Animal.prototype;
+
+        const cat = new Cat('야옹이', '먀옹');
+        cat.say();
+    </script>
+</body>
+</html>

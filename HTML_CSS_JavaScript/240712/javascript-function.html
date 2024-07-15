@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const gugudan = function gugudan(){
+            console.log('gugudan 함수 호출');
+        }
+        gugudan();
+
+        // 네이밍 함수
+        function gugudan2(){
+            console.log('구구단2호출');
+        }
+        gugudan2();
+
+        // 익명 함수
+        const gugudan3 = function(){
+            console.log('gugudan3 함수 호출');
+        }
+        gugudan3();
+
+        //화살표 함수
+        const gugudan4 = () =>{
+            console.log('함수4')
+        }
+        gugudan4();
+
+        const heropy = {
+            name : 'HEROPY',
+            age : 23,
+            getName: function() {
+                return this.name;
+            }
+        };
+        const namehero = heropy.getName();
+        console.log(namehero);
+
+        const sum = (num1, num2) => num1 + num2;
+        const result = sum(10,20);
+        console.log(result);
+
+        // 즉시실행 함수
+        (function() {
+            console.log('initialized');
+        })()
+        
+    </script>
+</body>
+</html>

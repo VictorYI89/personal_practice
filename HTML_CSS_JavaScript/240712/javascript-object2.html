@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person0 = {age :20};
+        let person = person0;                           //shallow copy(얕은복사)
+        person.age = 21;
+        console.log('age : ', person0.age);
+
+        let copyperson0 = Object.assign({}, person0);   //deep copy(깊은복사)
+        copyperson0.age = 22;
+        console.log('age : ' , person0.age)
+
+        const ab = 22;
+        let cd = ab;
+        cd = 32;
+        console.log(ab);
+        console.log(cd);
+
+        // const numberss = {
+        // a: 1,
+        // b: 2,
+        // get sum() {
+        //     console.log('sum 함수가 실행됩니다!');
+        //     return this.a + this.b;
+        // }
+        // };
+
+        // console.log(numberss.sum);
+        // numberss.b = 5;
+        // console.log(numberss.sum);
+
+        const numbers = {
+            _a: 1,
+            _b: 2,
+            sum: 5,
+            calculate() {
+                console.log('calculate');
+                this.sum = this._a + this._b;
+            },
+            get a() {
+                return this._a;
+            },
+            get b() {
+                return this._b;
+            },
+            set a(value) {
+                console.log('a가 바뀝니다.');
+                this._a = value;
+                this.calculate();
+            },
+            set b(value) {
+                console.log('b가 바뀝니다.');
+                this._b = value;
+                this.calculate();
+            }
+        };
+
+        console.log(numbers.sum);
+        numbers.a = 9;
+        console.log(numbers.a);
+        console.log(numbers.sum);
+        numbers.b = 7;
+        console.log(numbers.sum);
+        numbers.a = 9;
+        console.log(numbers.sum);
+      </script>
+</body>
+</html>

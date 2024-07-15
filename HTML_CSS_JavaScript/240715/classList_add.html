@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red-color{
+            color: red;
+            background-color: black;
+        }
+         .fz30{
+            font-size: 30px;
+         }
+    </style>
+</head>
+<body>
+    <p id="text">text</p>
+    <script>
+        const pE1 = document.querySelector('#text');
+        pE1.classList.add('red-color', 'fz30');
+
+        pE1.classList.remove('red-color');
+
+        pE1.classList.toggle('red-color');
+        pE1.classList.remove('red-color');
+
+        setInterval(() => {
+            pE1.classList.toggle('red-color')
+        }, 2000);
+
+    </script>
+</body>
+</html>

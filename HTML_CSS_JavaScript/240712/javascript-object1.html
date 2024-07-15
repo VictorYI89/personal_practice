@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person1 = {};
+        const person2 = { name:"Hong Gildong" };
+        const person3 = {
+            name : ["Hong", "Gildong"],
+            age : 20,
+            isAdult : true,
+            printInfo:function(){
+                console.log('printInfo');
+            }
+        };
+        console.log(person3.name);
+        console.log(person3['name']);
+        console.log(person3['name'][0]);
+        console.log(person3['name'][1]); 
+        const person4 = {
+            name : {
+                firstName:"Gildong",
+                lastName:"Hong"
+            },
+            age : 20,
+            isAdult : true,
+            printInfo: function() {
+                console.log('printInfo========', this.age);
+            }
+        };
+        console.log(person4.name);
+        console.log(person4['name']);
+        console.log(person4['printInfo']);
+        console.log(person4['printInfo']());
+        const person5 = {
+            "phone number":"010-000-0000"
+        };
+        console.log(person5["phone number"]);
+
+        // 객체 속성 값 변경
+        person2.name = '유관순';
+        console.log(person2.name);
+    
+        // 객체 속성 값 추가
+        console.log('persone2(전):',person2);
+        person2.age = 21;
+        console.log('persone2(후):',person2);
+    
+        // 객체 속성 삭제하기
+        // delete person.age;
+        // console.log('person2(삭제후):',person2);
+
+        // 멀티라인 작성
+        console.log(`afjewoif
+        fwajeiofjewia`);
+
+        const ironMan = {
+        name: '토니 스타크',
+        actor: '로버트 다우니 주니어',
+        alias: '아이언맨'
+        };
+
+        const captainAmerica = {
+        name: '스티븐 로저스',
+        actor: '크리스 에반스',
+        alias: '캡틴 아메리카'
+        };
+
+        console.log(ironMan);
+        console.log(captainAmerica);
+
+    </script>
+</body>
+</html>

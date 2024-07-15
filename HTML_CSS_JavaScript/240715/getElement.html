@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">title</h1>
+    <p class="text">text-1</p>
+    <p class="text">text-2</p>
+
+    <button onclick="changeTitle()">난수 생성</button>
+    <button onclick="changeTitle()">text-1글자 대신 난수 생성</button>
+
+    <script>
+        // id 속성값이 title인 요소 노드 1개 선택
+        const el = document.getElementById(`title`);
+        console.log(el);
+
+        // 자바 스크립트에서 난수 생성
+        function changeTitle(){
+            el.textContent = Math.floor(Math.random()*5)+1;
+        }
+        // class 속성값이 text인 요소 노트 모두 선택
+        const classEl = document.getElementsByClassName(`text`);
+        console.log(classEl);
+
+        function changeText1(){
+            classEl.textContent = Math.floor(Math.random()*5)+1;
+        }
+
+        // p태그에 해당하는 요소 노드 모드 선택
+        const tagEls = document.getElementsByTagName(`p`);
+        // console.log(tagEls);
+        for(let el of tagEls){
+            console.log(`for : `, el);
+        }
+    </script>
+
+</body>
+</html>
