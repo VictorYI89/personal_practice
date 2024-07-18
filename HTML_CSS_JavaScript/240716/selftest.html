@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="box">button</button>
+    <div>1</div>
+    <div>2</div>
+    <script>
+        let fruits = ['apple', 'banana', 'cherry'];
+        console.log(fruits[1]);
+
+        function Hello(){
+            console.log('Hello~');
+        }
+        Hello();
+
+        const boxEl = document.querySelector('.box');
+        boxEl.addEventListener('click', function(){console.log('Hello~~')});
+        
+        const divClass = document.querySelectorAll('div');
+        divClass.forEach(function (divClass){
+            divClass.classList.add('Hello');
+        });
+    </script>
+</body>
+</html>

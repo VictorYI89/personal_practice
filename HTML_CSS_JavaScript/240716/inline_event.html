@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="clickEvent()">클릭</button>
+    <input type="text" onfocus="focusEvent()" onblur="blurEvent()">
+    <div ondblclick="dblClickEvent()">더블클릭</div>
+    <div ></div>
+    <script>
+        function clickEvent(){
+            alert('클릭 이벤트 발생'); // alert - 알람창 생성
+        }
+        function focusEvent(){
+            console.log('포커스 이벤트 발생');
+        }
+        function blurEvent(){
+            console.log('블러 이벤트 발생');
+        }
+        function dblClickEvent(){
+            console.log('더블클릭 이벤트 발생');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.naver.com">네이버 이동</a>
+    <a href="https://www.daum.com">다음 이동</a>
+    <script>
+        const aEls = document.querySelectorAll('a');
+        aEls.forEach(aEl => {
+            aEl.addEventListener('click', function(e){
+                // 기본 이벤트를 취소
+                e.preventDefault();
+                if(aEl.href.includes("https://www.daum.com")){
+                    this.style.backgroundColor = 'red';
+                }else if(aEl.href.includes("https://www.naver.com")){
+                    this.style.backgroundColor = 'yellow';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

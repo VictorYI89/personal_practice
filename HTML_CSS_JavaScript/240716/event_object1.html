@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>클릭</button>    
+    <form action="">
+        <input type="text" />
+    </form>
+    <script>
+        const inputEl = document.querySelector('input');
+        inputEl.onkeydown = function(event){
+            console.log('keyCode : ' + event.keyCode);
+        }
+        const button = document.querySelector('button');
+        button.onclick = function(event){
+            alert('클릭 -> ' + event.clientX + ':' + event.clientY);
+            console.log('event', event)
+            
+            console.log(`pageX:${event.pageX}`);
+            console.log(`pageY:${event.pageY}`);
+            console.log(`screenX:${event.screenX}`);
+            console.log(`screenY :${event.screenY }`);
+        }
+    </script>
+</body>
+</html>
