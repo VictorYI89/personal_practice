@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Starbucks homepage">
+        <property name="context-root" value="Starbucks_homepage"/>
+        <property name="java-output-path" value="/Starbucks homepage/build/classes"/>
+    </wb-module>
+</project-modules>
