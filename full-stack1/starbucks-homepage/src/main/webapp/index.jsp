@@ -5,7 +5,6 @@
 <%@ page import = "java.sql.ResultSet" %>
 <%@ page import = "java.sql.SQLException" %>
 <%@ page import = "com.starbucks.utils.DBManager" %>
-<% %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +81,6 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
 <%
-	System.out.println("Hello JSP");
 
 	// DB접속 객체 가져오기
 	Connection conn = DBManager.getDBConnection();
@@ -92,7 +90,7 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	try {
-		String selectSql = "SELECT * FROM board WHERE ROWNUM <= 3 ORDER BY seq DESC";
+		String selectSql = "SELECT * FROM ( SELECT * FROM board ORDER BY SEQ DESC) WHERE ROWNUM <= 3";
 		pstmt = conn.prepareStatement(selectSql);
 		rs = pstmt.executeQuery();	// sql실행
 

@@ -12,7 +12,7 @@ function onYouTubeIframeAPIReady() {
         videoId: 'An6LvWQuj_8',  //변경-영상ID
         playerVars: {
             autoplay : 1,   //자동재생 여부(1:자동재생 함, mute와 함께 설정)
-            loop : 1,    //반복재생여부(1:반복재생 함)
+            loop : true,    //반복재생여부(1:반복재생 함)
             playlist : 'An6LvWQuj_8'   //재생할 영상 리스트
         },
         events: {

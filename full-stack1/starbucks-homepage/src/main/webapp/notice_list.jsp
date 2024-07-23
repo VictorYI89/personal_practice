@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    	String noticeSeq = request.getParameter("seq");
+    	String noticeTitle = request.getParameter("title");
+    %>
+    
+<%@ page import = "java.sql.Connection" %>
+<%@ page import = "java.sql.DriverManager" %>
+<%@ page import = "java.sql.PreparedStatement" %>
+<%@ page import = "java.sql.ResultSet" %>
+<%@ page import = "java.sql.SQLException" %>
+<%@ page import = "com.starbucks.utils.DBManager" %>
+<%
+	String searchKeyword = request.getParameter("search");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +28,7 @@
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
     <!-- 4. 커스템 css파일 세팅(local) -->
     <link href="./css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/notice.css">
     <!-- 5. 폰트 설정 -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
@@ -41,14 +56,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css" integrity="sha512-aMup4I6BUl0dG4IBb0/f32270a5XP7H1xplAJ80uVKP6ejYCgZWcBudljdsointfHxn5o302Jbnq1FXsBaMuoQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="./js/youtube.js"></script>
     <script defer src="./js/main.js"></script>
+    <script defer src="./js/notice.js"></script>
 </head>
 <body>
 	<%@ include file="./header.jsp" %>
-
-    <section style="margin-top:120px;">
-    공지사항 리스트
+	
+    <section class="">
+        <div class="inner sub_tit_wrap">
+            <div class="sub_tit_inner">
+                <h2><img src="https://www.starbucks.co.kr/common/img/whatsnew/notice_tit.jpg" alt="공지사항"></h2>
+               	<ul class="smap">
+               		<li><a href="/starbucks-homepage"><img src="https://image.istarbucks.co.kr/common/img/common/icon_home.png" alt="홈으로"></a></li>
+               		<li><img src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png" alt="홈으로"></li>
+               		<li><a href="#">WHAT'S NEW</a></li>
+               		<li><img src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png" alt="홈으로"></li>
+               		<li><a href="#">공지사항</a>
+               	</ul>
+            </div>
+            <div class="news_sch_wrap">
+            	<div class="sch_items">
+					<input type="text" name="sch_bar" id="sch_bar"
+						placeholder="검색어를 입력해 주세요." />
+					<a href="javascript: searchNotice();" class="btn new-board-search-btn">검색</a>
+               	</div>
+            </div>
+        </div>
     </section>
+    
+    <!-- notice list -->
+    <section class="">
+    	<div class="inner notice_list">
+	    	<div class="notice_header">
+	    		<div class="notice_no">NO</div>
+	    		<div class="notice_title">제목</div>
+	    		<div class="notice_regdate">날짜</div>
+	    		<div class="notice_hit">조회수</div>
+	    	</div>
+	    	
+			<%
+			//DB접속 객체 가져오기
+			Connection conn = DBManager.getDBConnection();
 
+			//DB조회쿼리 실행하여 DB에 있는 데이터 값 가져오기
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				//String selectSql = "SELECT * FROM board ORDER BY seq DESC";
+				String selectSql;
+				if (searchKeyword != null & searchKeyword != "") {
+					selectSql = "SELECT * FROM board WHERE TITLE LIKE '%" 
+						+ searchKeyword + "%' ORDER BY seq DESC";
+				} else {
+					selectSql = "SELECT * FROM board ORDER BY seq DESC";
+				}
+
+				pstmt = conn.prepareStatement(selectSql);
+				rs = pstmt.executeQuery(); // sql실행
+
+				while (rs.next()) {
+			%>
+	    	
+	    	<div class="notice_list_items">
+	    		<ul>
+	    			<li><%= rs.getString("SEQ") %></li>
+	    			<a href=/starbucks-homepage/notice_detail.jsp?seq=<%= rs.getString("SEQ")%>&title=<%= rs.getString("TITLE") %>><li><%= rs.getString("TITLE") %></li></a>
+	    			<li><%= rs.getDate("CREATE_DATE") %></li>
+	    			<li><%= rs.getInt("READ_COUNT") %></li>
+	    		</ul>
+	    	</div>
+	    	
+	    	<%
+	    		} 
+	    	} catch(SQLException se) {
+	    		System.out.println("게시판 조회 쿼리 실행 오류: " + se.getMessage());
+	    	} finally {
+	    		if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+	    	  	if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
+	    	  	if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+	    	}
+	    	
+	    	%>
+	    		
+    	</div>
+    </section>
 	<%@ include file="./footer.jsp" %>
+	<%-- <jsp:include page="./footer.jsp"/>  위의 footer표시하는것과 같은 기능--%>
 </body>
 </html>

@@ -143,7 +143,7 @@
                 </li>
             </ul>
         </div>
-
+<!-- 
         <div class="badges">
             <div class="badge">
                 <img src='./images/badge1.jpg' alt="badge1" />
@@ -151,7 +151,7 @@
             <div class="badge">
                 <img src='./images/badge2.jpg' alt="badge2" />
             </div>
-        </div>
+        </div> -->
         <!-- <div class="to-top">
             <span class="material-symbols-outlined">
                 arrow_upward

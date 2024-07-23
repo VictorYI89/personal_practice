@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-    	String noticeSeq = request.getParameter("seq");
-    	String noticeTitle = request.getParameter("title");
-    %>
+    
+<%
+	String noticeSeq = request.getParameter("seq"); // seq키의 값을 가져온다
+	String noticeTitle = request.getParameter("title"); // title키의 값을 가져온다
+%>
+    
+<%@ page import = "java.sql.Connection" %>
+<%@ page import = "java.sql.DriverManager" %>
+<%@ page import = "java.sql.PreparedStatement" %>
+<%@ page import = "java.sql.ResultSet" %>
+<%@ page import = "java.sql.SQLException" %>
+<%@ page import = "com.starbucks.utils.DBManager" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +26,7 @@
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
     <!-- 4. 커스템 css파일 세팅(local) -->
     <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/notice.css" rel="stylesheet">
     <!-- 5. 폰트 설정 -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
@@ -47,17 +56,102 @@
     <script defer src="./js/main.js"></script>
 </head>
 <body>
-	<%@ include file="./header.jsp" %>
-    <%
-    	System.out.println("공지사항 리스트 상단");
-;    %>
-    <section style="margin-top:120px;">
-    공지사항 상세페이지 타이틀 번호 -> <%= noticeSeq %>
-    공지사항 상세페이지 타이틀 이름 -> <%= noticeTitle %>
-    </section>
-	<%
-    	System.out.println("공지사항 리스트 하단");
-;    %>
+	<div class="notice_detail_inner">
+		<%@ include file="./header.jsp" %>
+	    <%
+	 		// 선택한 글 조회수 1 올리기
+			//System.out.println("공지사항 상세페이지 상단");
+		%>
+		
+	    <%-- <section style="margin-top:120px;">
+	    공지사항 상세페이지1 -> <%= noticeSeq %>: <%= noticeTitle %>
+	    </section> --%>
+		    <div class="inner">
+		    <!-- notice detail top(공지사항 리스트의 상단과 50% 비슷함) -->
+		    <section class="">
+		        <div class="sub_tit_wrap">
+		            <div class="sub_tit_inner">
+		                <h2><img src="https://www.starbucks.co.kr/common/img/whatsnew/notice_tit.jpg" alt="공지사항"></h2>
+		               	<ul class="smap">
+		               		<li><a href="/starbucks-homepage"><img src="https://image.istarbucks.co.kr/common/img/common/icon_home.png" alt="홈으로"></a></li>
+		               		<li><img src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png" alt="홈으로"></li>
+		               		<li><a href="#">WHAT'S NEW</a></li>
+		               		<li><img src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png" alt="홈으로"></li>
+		               		<li><a href="#">공지사항</a>
+		               	</ul>
+		            </div>
+		        </div>
+		    </section>
+		    
+		    <!-- notice detail main -->
+		    <section class="">
+		    	<div class="notice_list">
+			    	<div class="notice_header">
+			    		<div class="notice_no"><%= noticeTitle %></div>
+			    	</div>	
+			  	</div>
+			  	
+		    	<%
+		    	// DB접속 객체 가져오기
+		    	Connection conn = DBManager.getDBConnection();
+		     	
+	
+		    	// DB조회쿼리 실행하여 DB에 있는 데이터 값 3개 가져오기
+		    	PreparedStatement pstmt = null;
+		    	ResultSet rs = null;
+		    	try {
+		    		String selectSql = "SELECT CONTENT FROM board WHERE BOARD.TITLE = ?";
+		    		pstmt = conn.prepareStatement(selectSql);
+		            pstmt.setString(1, noticeTitle);
+		    		rs = pstmt.executeQuery();	// sql실행
+	
+		    		if (rs.next()) { 		// 1개의 row씩 가져오기
+		    	%>
+		    	
+		    	<div class="notice_detail_items">
+		    		<ul>
+		    			<li class="content"><%= rs.getString("CONTENT") %></li>
+		    		</ul>
+		    	</div>
+		    	
+		    	<%
+		    		} 
+		    	} catch(SQLException se) {
+		    		System.out.println("게시판 조회 쿼리 실행 오류: " + se.getMessage());
+		    	} finally {
+		    		if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+		    	  	if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
+		    	  	if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+		    	}
+		    	
+		    	%>
+		    	
+			</section>
+				<div class="btnbox">
+					<div class="btn golist">
+			  			<a href="/starbucks-homepage/notice_list.jsp">목록</a>
+			  		</div>
+		  		</div>
+			
+		   <!--  notice detail bottom -->
+	   		<section class="notice_detail_bottom">
+				<div class="inner sub_detail_btm">
+					<div class="bottom__prev">
+						<div class="nd_btm_left">윗글</div>
+			  			<div class="nd_btm_right">윗글 타이틀</div>
+					</div>
+					<div class="bottom__next">
+						<div class="nd_btm_left">아랫글</div>
+			  			<div class="nd_btm_right">아랫글 타이틀</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+    
+<%
+		//System.out.println("공지사항 상세페이지 하단");
+%>
 	<%@ include file="./footer.jsp" %>
 </body>
 </html>
